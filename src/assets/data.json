@@ -1,0 +1,46 @@
+{
+    "image1": [
+        {
+            "href": "245_L3_atlas.png",
+            "channel": 1
+        }, 
+        {
+            "href": "245_L3_NeuN.jpg",
+            "channel": 2            
+        }, 
+        {
+            "href": "245_L3_TH.jpg",
+            "channel": 3
+        }, 
+        {
+            "href": "245_L3_nissl.jpg",
+            "channel": 4            
+        },
+        {
+            "href": "245_L3_ChAT.jpg",
+            "channel": 5            
+        }        
+    ],
+    "image2": [
+        {
+            "href": "263_L3_atlas.png",
+            "channel": 1
+        }, 
+        {
+            "href": "263_L3_NeuN.jpg",
+            "channel": 2            
+        }, 
+        {
+            "href": "263_L3_TH.jpg",
+            "channel": 3
+        }, 
+        {
+            "href": "263_L3_nissl.jpg",
+            "channel": 4            
+        },
+        {
+            "href": "263_L3_ChAT.jpg",
+            "channel": 5            
+        }
+    ]    
+}
