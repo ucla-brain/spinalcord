@@ -59,6 +59,11 @@ export default {
 </template>
 
 <style scoped>
+figcaption {
+  position: relative;
+  z-index: 1;
+}
+
 #app {
   background-color: black;
   color: white;
