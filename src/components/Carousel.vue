@@ -37,7 +37,7 @@
                 <img v-bind:class="{ activeLayer: selectedChannels.includes(2) }" class="carousel-image" v-bind:src="slide.greenHref"/>
                 <img v-bind:class="{ activeLayer: selectedChannels.includes(3) }" class="carousel-image" v-bind:src="slide.blueHref"/>
                 <img v-bind:class="{ activeLayer: selectedChannels.includes(4) }" class="carousel-image" v-bind:src="slide.redHref"/>
-                <figcaption>Section {{slide.section}}</figcaption>
+                <figcaption class="figcaption">Section {{slide.section}}</figcaption>
             </slide>
         </carousel-3d>
     </div>
@@ -65,8 +65,12 @@
   opacity: 1;
 }
 
-figcaption {
+.figcaption {
   font-size: 20px;
   text-align: center;
+}
+
+.next, .prev {
+  color: white;
 }
 </style>
