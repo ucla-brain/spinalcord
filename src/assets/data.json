@@ -1,46 +1,18 @@
-{
-    "image1": [
-        {
-            "href": "245_L3_atlas.png",
-            "channel": 1
-        }, 
-        {
-            "href": "245_L3_NeuN.jpg",
-            "channel": 2            
-        }, 
-        {
-            "href": "245_L3_TH.jpg",
-            "channel": 3
-        }, 
-        {
-            "href": "245_L3_nissl.jpg",
-            "channel": 4            
-        },
-        {
-            "href": "245_L3_ChAT.jpg",
-            "channel": 5            
-        }        
-    ],
-    "image2": [
-        {
-            "href": "263_L3_atlas.png",
-            "channel": 1
-        }, 
-        {
-            "href": "263_L3_NeuN.jpg",
-            "channel": 2            
-        }, 
-        {
-            "href": "263_L3_TH.jpg",
-            "channel": 3
-        }, 
-        {
-            "href": "263_L3_nissl.jpg",
-            "channel": 4            
-        },
-        {
-            "href": "263_L3_ChAT.jpg",
-            "channel": 5            
-        }
-    ]    
-}
+[
+    {
+        "section": 245,
+        "atlasHref": "/static/245_L3_atlas.png",
+        "purpleHref": "/static/245_L3_NeuN.jpg",
+        "greenHref": "/static/245_L3_TH.jpg",
+        "blueHref": "/static/245_L3_nissl.jpg",
+        "redHref": "/static/245_L3_ChAT.jpg"
+    },
+    {
+        "section": 263,
+        "atlasHref": "/static/263_L4_atlas.png",
+        "purpleHref": "/static/263_L4_NeuN.jpg",
+        "greenHref": "/static/263_L4_TH.jpg",
+        "blueHref": "/static/263_L4_nissl.jpg",
+        "redHref": "/static/263_L4_ChAT.jpg"
+    }
+]
