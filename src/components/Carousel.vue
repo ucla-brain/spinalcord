@@ -11,7 +11,8 @@
           type: Array,
           default: function () { return [] }
         },
-        selectedChannels: Array
+        isAtlasSelected: Boolean,
+        selectedChannel: String
     },
     mounted: function() {
       var self = this;
@@ -32,11 +33,11 @@
     <div id="carousel" class="col-10">
         <carousel-3d ref="carousel" :count="slides.length" :border="0" :perspective="0" :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" :controls-width="30" :controls-height="660" :width="1200" :height="1000" :display="1" :inverseScaling="0" :startIndex="slides.length/2">
             <slide v-for="(slide, i) in slides" :index="i">
-                <img class="carousel-image atlas" v-bind:src="slide.atlasHref"/>
-                <img v-bind:class="{ activeLayer: selectedChannels.includes(1) }" class="carousel-image" v-bind:src="slide.purpleHref"/>
-                <img v-bind:class="{ activeLayer: selectedChannels.includes(2) }" class="carousel-image" v-bind:src="slide.greenHref"/>
-                <img v-bind:class="{ activeLayer: selectedChannels.includes(3) }" class="carousel-image" v-bind:src="slide.blueHref"/>
-                <img v-bind:class="{ activeLayer: selectedChannels.includes(4) }" class="carousel-image" v-bind:src="slide.redHref"/>
+                <img v-bind:class="{ activeLayer: isAtlasSelected }" class="carousel-image atlas" v-bind:src="slide.atlasHref"/>
+                <img v-bind:class="{ activeLayer: selectedChannel == '1' }" class="carousel-image" v-bind:src="slide.purpleHref"/>
+                <img v-bind:class="{ activeLayer: selectedChannel == '2' }" class="carousel-image" v-bind:src="slide.greenHref"/>
+                <img v-bind:class="{ activeLayer: selectedChannel == '3' }" class="carousel-image" v-bind:src="slide.blueHref"/>
+                <img v-bind:class="{ activeLayer: selectedChannel == '4' }" class="carousel-image" v-bind:src="slide.redHref"/>
                 <figcaption class="figcaption">Section {{slide.section}}</figcaption>
             </slide>
         </carousel-3d>
@@ -44,11 +45,12 @@
 </template>
 
 <style scoped>
+
 .carousel-image {
   visibility: hidden;
 }
 
-.activeLayer, .atlas {
+.activeLayer{
   visibility: visible;
 }
 
@@ -58,19 +60,16 @@
 
 .carousel-image {
   position: absolute;
-  opacity: 0.8;
 }
 
 .atlas {
-  opacity: 1;
+  z-index: 100;
 }
 
 .figcaption {
   font-size: 20px;
   text-align: center;
-}
-
-.next, .prev {
-  color: white;
+  position: relative;
+  z-index: 1;
 }
 </style>

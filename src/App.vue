@@ -20,7 +20,8 @@ export default {
   data () {
     return {
         images: imageData,
-        selectedChannels: [0]
+        selectedChannel: "1",
+        isAtlasSelected: true
     }
   }
 }
@@ -32,37 +33,32 @@ export default {
       <p id="sidebarTitle">Channel</p>
       <div id="toggles">
       <div id="atlas" class="channel">
-        <input type="checkbox" id="ch0" value="0" v-model="selectedChannels" v-on:click="selectOnlyThis(0)">
-        <label for="atlas">None (Atlas)</label>
+        <input type="checkbox" id="ch0" v-model="isAtlasSelected">
+        <label for="atlas">Atlas</label>
       </div>
-
       <div id="neun" class="channel">
-        <input type="checkbox" id="ch1" value="1" v-model="selectedChannels" v-on:click="selectOnlyThis(1)">
+        <input type="radio" id="ch1" value="1" v-model="selectedChannel">
         <label for="neun">NeuN</label>
       </div>
       <div id="th" class="channel">
-        <input type="checkbox" id="ch2" value="2" v-model="selectedChannels" v-on:click="selectOnlyThis(2)">
+        <input type="radio" id="ch2" value="2" v-model="selectedChannel">
         <label for="th">Tyrosine Hydroxylase</label>
       </div>
       <div id="nissl" class="channel">
-        <input type="checkbox" id="ch3" value="3" v-model="selectedChannels" v-on:click="selectOnlyThis(3)">
+        <input type="radio" id="ch3" value="3" v-model="selectedChannel">
         <label for="nissl">NISSL</label>
       </div>
       <div id="ca" class="channel">
-        <input type="checkbox" id="ch4" value="4" v-model="selectedChannels" v-on:click="selectOnlyThis(4)">
+        <input type="radio" id="ch4" value="4" v-model="selectedChannel">
         <label for="ca">Choline Acetyltransferase</label>
       </div>
       </div>
     </div>
-    <carousel :slides="images" :selectedChannels="selectedChannels"/>
+    <carousel :slides="images" :isAtlasSelected="isAtlasSelected" :selectedChannel="selectedChannel"/>
     </div>
 </template>
 
 <style scoped>
-figcaption {
-  position: relative;
-  z-index: 1;
-}
 
 #app {
   background-color: black;
