@@ -1,6 +1,7 @@
 # spinalcord
 
-This is the connectivity map for the Spinal Cord project.
+This is the connectivity map for the Cell Atlas of Mouse Brain-Spinal Cord Connectome.
+
 
 ## Tissue labeling channels
 
