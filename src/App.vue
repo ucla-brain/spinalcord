@@ -28,7 +28,8 @@ export default {
 </script>
 
 <template>
-  <div id="app" class="row">
+  <div id="app" class="container-fluid vh-100">
+    <div class="row vh-100">
     <div class="col-2 toggle-menu">
       <p id="sidebarTitle">Channel</p>
       <div id="toggles">
@@ -56,9 +57,13 @@ export default {
     </div>
     <carousel :slides="images" :isAtlasSelected="isAtlasSelected" :selectedChannel="selectedChannel"/>
     </div>
+    </div>
 </template>
 
-<style scoped>
+<style>
+.row {
+  overflow: hidden;
+}
 
 #app {
   background-color: black;
@@ -102,6 +107,10 @@ export default {
 
 #ca {
   color: red;
+}
+
+.next, .prev {
+  color: white !important;
 }
 </style>
  
