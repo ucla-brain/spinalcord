@@ -35,6 +35,11 @@
       caudalLabel.innerHTML = "Caudal";
       document.getElementsByClassName("carousel-3d-controls")[0].appendChild(rostralLabel);
       document.getElementsByClassName("carousel-3d-controls")[0].appendChild(caudalLabel);
+    },
+    computed: {
+      currentSection() {
+
+      }
     }
   };
 
@@ -42,7 +47,7 @@
 
 <template>
     <div id="carousel" class="col-10">
-        <carousel-3d ref="carousel" :count="slides.length" :border="0" :perspective="0" :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" :width="1000" :height="700" :display="1" :inverseScaling="0" :startIndex="slides.length/2">
+        <carousel-3d ref="carousel" :count="slides.length" :border="0" :perspective="0" :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" :width="1000" :height="700" :display="1" :inverseScaling="0" :loop="false">
             <slide v-for="(slide, i) in slides" :index="i">
                 <img v-bind:class="{ activeLayer: isAtlasSelected }" class="carousel-image atlas" v-bind:src="slide.atlasHref"/>
                 <img v-bind:class="{ activeLayer: selectedChannel == '1' }" class="carousel-image" v-bind:src="slide.purpleHref"/>
@@ -59,6 +64,9 @@
 
 .carousel-image {
   visibility: hidden;
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
 }
 
 .activeLayer{
