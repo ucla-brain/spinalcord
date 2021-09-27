@@ -2,7 +2,7 @@
 
 This is the connectivity map for the Cell Atlas of Mouse Brain-Spinal Cord Connectome.
 
-ucla-brain.github.io/spinalcord
+https://ucla-brain.github.io/spinalcord/
 
 
 ## Tissue labeling channels
