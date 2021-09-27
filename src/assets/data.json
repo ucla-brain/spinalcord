@@ -1,6 +1,6 @@
 [
     {
-        "section": 245,
+        "section": "245",
         "atlasHref": "static/245_L3_atlas.png",
         "purpleHref": "static/245_L3_NeuN.jpg",
         "greenHref": "static/245_L3_TH.jpg",
@@ -8,7 +8,7 @@
         "redHref": "static/245_L3_ChAT.jpg"
     },
     {
-        "section": 263,
+        "section": "263 L4",
         "atlasHref": "static/263_L4_atlas.png",
         "purpleHref": "static/263_L4_NeuN.jpg",
         "greenHref": "static/263_L4_TH.jpg",
