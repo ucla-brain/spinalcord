@@ -1,7 +1,8 @@
 {
-  "name": "vue-2-webpack-4-boilerplate",
+  "name": "Spinalcord",
   "version": "1.0.0",
-  "description": "Vue 2 application with webpack 4 boilerplate",
+  "description": "This GUI is to visualize the images of BLA projections.",
+  "author": "samteb <sam.teboul@gmail.com>",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
     "staging": "cross-env NODE_ENV=staging webpack",
@@ -15,7 +16,6 @@
     "Vue",
     "Webpack 4"
   ],
-  "author": "samteb <sam.teboul@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/samteb/vue-2-webpack-4-boilerplate",
   "dependencies": {
@@ -59,7 +59,7 @@
     "friendly-errors-webpack-plugin": "~1.7",
     "html-webpack-plugin": "~3.2",
     "mini-css-extract-plugin": "~0.5",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "~5.0",
     "sass-loader": "~7.1",
     "uglifyjs-webpack-plugin": "~1.2",
