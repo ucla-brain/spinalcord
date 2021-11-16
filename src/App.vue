@@ -1,32 +1,3 @@
-<script>
-import Carousel from './components/Carousel'
-import imageData from './assets/data.json'
-
-export default {
-  name : 'app',
-  components: {
-    Carousel
-  },
-  methods: {
-    selectOnlyThis(channelNumber) {
-      this.selectedChannels = [];
-      for (var i = 1;i <= 4; i++) {
-        document.getElementById("ch" + i).checked = false;
-      }
-      document.getElementById("ch" + channelNumber).checked = true;
-      this.selectedChannels.push(channelNumber);
-    }
-  },
-  data () {
-    return {
-        images: imageData,
-        selectedChannel: "1",
-        isAtlasSelected: true
-    }
-  }
-}
-</script>
-
 <template>
   <div id="app" class="container-fluid vh-100">
     <div class="row vh-100">
@@ -59,6 +30,35 @@ export default {
     </div>
     </div>
 </template>
+
+<script>
+import Carousel from './components/Carousel'
+import imageData from './assets/data.json'
+
+export default {
+  name : 'app',
+  components: {
+    Carousel
+  },
+  methods: {
+    selectOnlyThis(channelNumber) {
+      this.selectedChannels = [];
+      for (var i = 1;i <= 4; i++) {
+        document.getElementById("ch" + i).checked = false;
+      }
+      document.getElementById("ch" + channelNumber).checked = true;
+      this.selectedChannels.push(channelNumber);
+    }
+  },
+  data () {
+    return {
+        images: imageData,
+        selectedChannel: "1",
+        isAtlasSelected: true
+    }
+  }
+}
+</script>
 
 <style>
 .row {

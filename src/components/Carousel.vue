@@ -48,7 +48,7 @@
 <template>
     <div id="carousel" class="col-10">
         <carousel-3d ref="carousel" :count="slides.length" :border="0" :perspective="0" :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" :width="1000" :height="700" :display="1" :inverseScaling="0" :loop="false">
-            <slide v-for="(slide, i) in slides" :index="i">
+            <slide v-for="(slide, i) in slides" :key="slide" :index="i">
                 <img v-bind:class="{ activeLayer: isAtlasSelected }" class="carousel-image atlas" v-bind:src="slide.atlasHref"/>
                 <img v-bind:class="{ activeLayer: selectedChannel == '1' }" class="carousel-image" v-bind:src="slide.purpleHref"/>
                 <img v-bind:class="{ activeLayer: selectedChannel == '2' }" class="carousel-image" v-bind:src="slide.greenHref"/>

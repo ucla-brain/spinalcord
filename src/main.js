@@ -1,13 +1,15 @@
-import Vue from 'vue'
-import App from './App.vue'
+// Import Vue
+import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+// Import Vue App, routes, store
+import App from './App';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 Vue.use(BootstrapVue)
-Vue.config.productionTip = false
+
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+    el: '#app',
+    render: h => h(App),
+});
