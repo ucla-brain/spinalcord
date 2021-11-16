@@ -23,6 +23,7 @@
     "bootstrap-vue": "^2.21.2",
     "copy-webpack-plugin": "5.1.1",
     "tar": "^6.1.11",
+    "trim-newlines": "^4.0.2",
     "url-parse": "^1.5.3",
     "vue": "~2.6",
     "vue-carousel-3d": "^1.0.1",
