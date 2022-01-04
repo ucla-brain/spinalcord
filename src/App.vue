@@ -33,7 +33,7 @@
 
 <script>
 import Carousel from './components/Carousel'
-//import imageData from './assets/data.js'
+import sections from './assets/data.js'
 
 export default {
   name : 'app',
@@ -52,7 +52,7 @@ export default {
   },
   data () {
     return {
-        images: ["245 L3", "253 L3", "263 L4"],
+        images: sections,
         selectedChannel: "1",
         isAtlasSelected: true
     }
