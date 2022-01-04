@@ -1,6 +1,5 @@
 .idea/
 .vscode/
 node_modules/
-docs/
 npm-debug.log
 package-lock.json
