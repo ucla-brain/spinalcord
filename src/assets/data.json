@@ -1,26 +1,26 @@
 [
     {
         "section": "245",
-        "atlasHref": "/245_L3_atlas.png",
-        "purpleHref": "/245_L3_NeuN.jpg",
-        "greenHref": "/245_L3_TH.jpg",
-        "blueHref": "/245_L3_nissl.jpg",
-        "redHref": "/245_L3_ChAT.jpg"
+        "atlasHref": "245_L3_atlas.png",
+        "purpleHref": "245_L3_NeuN.jpg",
+        "greenHref": "245_L3_TH.jpg",
+        "blueHref": "245_L3_nissl.jpg",
+        "redHref": "245_L3_ChAT.jpg"
     },
     {
         "section": "253",
-        "atlasHref": "/253_L3_atlas.png",
-        "purpleHref": "/253_L3_NeuN.jpg",
-        "greenHref": "/253_L3_TH.jpg",
-        "blueHref": "/253_L3_nissl.jpg",
-        "redHref": "/253_L3_ChAT.jpg"
+        "atlasHref": "253_L3_atlas.png",
+        "purpleHref": "253_L3_NeuN.jpg",
+        "greenHref": "253_L3_TH.jpg",
+        "blueHref": "253_L3_nissl.jpg",
+        "redHref": "253_L3_ChAT.jpg"
     },
     {
         "section": "263 L4",
-        "atlasHref": "/263_L4_atlas.png",
-        "purpleHref": "/263_L4_NeuN.jpg",
-        "greenHref": "/263_L4_TH.jpg",
-        "blueHref": "/263_L4_nissl.jpg",
-        "redHref": "/263_L4_ChAT.jpg"
+        "atlasHref": "263_L4_atlas.png",
+        "purpleHref": "263_L4_NeuN.jpg",
+        "greenHref": "263_L4_TH.jpg",
+        "blueHref": "263_L4_nissl.jpg",
+        "redHref": "263_L4_ChAT.jpg"
     }
 ]
