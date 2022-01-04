@@ -18,7 +18,7 @@ const webpackConfig = {
     resolve: {
         extensions: [ '.js', '.vue' ],
         alias: {
-            'vue$': isDev ? 'vue/dist/vue.runtime.js' : 'vue/dist/vue.runtime.min.js',
+            'vue$': isDev ? 'vue/docs/vue.runtime.js' : 'vue/docs/vue.runtime.min.js',
             '@': helpers.root('src')
         }
     },
