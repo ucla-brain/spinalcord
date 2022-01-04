@@ -15,7 +15,7 @@ const webpackConfig = merge(commonConfig, {
     mode: 'development',
     devtool: 'cheap-module-eval-source-map',
     output: {
-        path: helpers.root('dist'),
+        path: helpers.root('docs'),
         publicPath: '/',
         filename: 'js/[name].bundle.js',
         chunkFilename: 'js/[id].chunk.js'

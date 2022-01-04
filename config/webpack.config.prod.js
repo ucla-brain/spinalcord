@@ -16,7 +16,7 @@ const CopyWebpackPlugin        = require('copy-webpack-plugin');
 const webpackConfig = merge(commonConfig, {
     mode: 'production',
     output: {
-        path: helpers.root('dist'),
+        path: helpers.root('docs'),
         publicPath: '/',
         filename: 'js/[hash].js',
         chunkFilename: 'js/[id].[hash].chunk.js'
