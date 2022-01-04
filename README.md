@@ -34,19 +34,10 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 Add the atlas images to the `src/static` folder.
 
-Add the section number and file names of the images to the `src/assets/data.json` file. 
+* Ensure the file images adhere to the pattern `section_channel.(png/jpg)`.
 
-Ex:
-```
-    {
-        "section": "253",
-        "atlasHref": "/253_L3_atlas.png",
-        "purpleHref": "/253_L3_NeuN.jpg",
-        "greenHref": "/253_L3_TH.jpg",
-        "blueHref": "/253_L3_nissl.jpg",
-        "redHref": "/253_L3_ChAT.jpg"
-    },
-```
+Add the section number to the `src/assets/data.js` file. 
+
 
 ## Contributors
 - Amanda "Jean" Tugangui
