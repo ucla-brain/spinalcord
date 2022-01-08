@@ -1,6 +1,6 @@
 # spinalcord
 
-This is the connectivity map for the Cell Atlas of Mouse Brain-Spinal Cord Connectome.
+This is the connectivity map for the Cell Atlas of Mouse Brain-Spinal Cord Connectome. U01 Spinal cord.
 
 https://ucla-brain.github.io/spinalcord/
 
