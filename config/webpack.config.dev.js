@@ -32,9 +32,12 @@ const webpackConfig = merge(commonConfig, {
         new FriendlyErrorsPlugin(),
         // copy custom static assets
     new CopyWebpackPlugin(
-        [
-          { from: path.resolve(__dirname, '../src/static'), to: environment.assetsPublicPath }
-        ]
+        {
+            patterns: [
+                { from: path.join(__dirname, '../static'), to: path.join(__dirname, '../dist/electron/static') },
+              ],            
+        //   { from: path.resolve(__dirname, '../src/static'), to: environment.assetsPublicPath }
+        }
       ),
       new MiniCSSExtractPlugin({
         filename: 'css/[name].[hash].css',

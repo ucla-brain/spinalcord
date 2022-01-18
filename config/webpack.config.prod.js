@@ -72,11 +72,11 @@ const webpackConfig = merge(commonConfig, {
         new webpack.HashedModuleIdsPlugin(),
         // copy custom static assets
         new CopyWebpackPlugin(
-        [
-          {from: path.resolve(__dirname, '../src/static'),
-          to: environment.assetsPublicPath,
-          ignore: ['.*']}
-        ]
+        {
+            patterns: [
+                { from: path.join(__dirname, '../static'), to: path.join(__dirname, '../dist/electron/static'), ignore: ['.*'] },
+            ],        
+        }
     )
     ]
 });
