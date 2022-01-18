@@ -2,7 +2,7 @@
   "name": "Spinalcord",
   "version": "1.0.0",
   "description": "This GUI is to visualize the images of BLA projections.",
-  "author": "samteb <sam.teboul@gmail.com>",
+  "author": "seitay <seita@g.ucla.edu>",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
     "staging": "cross-env NODE_ENV=staging webpack",
