@@ -27,8 +27,14 @@ jobs:
       - name: Commit files
         id: commit
         run: |
-          git config --global user.name "tugangui"
-          git config --global user.email "tugangui@g.ucla.edu"
+          git config --global user.name "${{ secrets.USERNAME }}"
+          git config --global user.email "${{ secrets.USER_EMAIL }}"
           git add *
           git commit -m "New build"
           git push
+
+      - name: Slack notifier
+        if: always()
+        uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }} 
