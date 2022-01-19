@@ -74,8 +74,5 @@
     "webpack-dev-server": "~3.1",
     "webpack-hot-middleware": "~2.24",
     "webpack-merge": "~4.2"
-  },
-  "resolutions": {
-    "ansi-html": "https://registry.npmjs.org/ansi-html-community/-/ansi-html-community-0.0.8.tgz"
   }
 }
