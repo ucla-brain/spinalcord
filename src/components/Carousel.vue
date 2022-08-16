@@ -1,10 +1,12 @@
 <script>
-  import { Carousel3d, Slide } from 'vue-carousel-3d'
+  //import { Carousel3d, Slide } from 'vue-carousel-3d'
+  import {VueperSlides, VueperSlide} from 'vueperslides'
+  import 'vueperslides/dist/vueperslides.css'
 
   export default {
     components: {
-      Carousel3d,
-      Slide
+      VueperSlides,
+      VueperSlide
     },
     props: {
         slides: Array,
@@ -21,17 +23,6 @@
             self.$refs.carousel.goPrev();
         }
       });
-
-      let rostralLabel = document.createElement("p");
-      rostralLabel.setAttribute("id", "rostralLabel");
-      rostralLabel.setAttribute("style", "position: absolute; z-index: 1000; top: 65px; left: 10px;");
-      rostralLabel.innerHTML = "Rostral";
-      let caudalLabel = document.createElement("p");
-      caudalLabel.setAttribute("id", "caudalLabel");
-      caudalLabel.setAttribute("style", "position: absolute; z-index: 1000; top: 65px; right: 10px");
-      caudalLabel.innerHTML = "Caudal";
-      document.getElementsByClassName("carousel-3d-controls")[0].appendChild(rostralLabel);
-      document.getElementsByClassName("carousel-3d-controls")[0].appendChild(caudalLabel);
     },
     methods: {
       /***
@@ -59,16 +50,30 @@
 
 <template>
     <div id="carousel" class="col-10">
-        <carousel-3d ref="carousel" :count="slides.length" :border="0" :perspective="0" :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" :width="1000" :height="680" :display="1" :inverseScaling="0" :loop="false">
-            <slide v-for="(slide, i) in slides" :key="slide" :index="i">
-                <img v-bind:class="{ activeLayer: isAtlasSelected }" class="carousel-image atlas" v-bind:src="getSlideUrl(slide, 'atlas')"/>
-                <img v-bind:class="{ activeLayer: selectedChannel == '1' }" class="carousel-image" v-bind:src="getSlideUrl(slide, 'NeuN')"/>
-                <img v-bind:class="{ activeLayer: selectedChannel == '2' }" class="carousel-image" v-bind:src="getSlideUrl(slide, 'TH')"/>
-                <img v-bind:class="{ activeLayer: selectedChannel == '3' }" class="carousel-image" v-bind:src="getSlideUrl(slide, 'nissl')"/>
-                <img v-bind:class="{ activeLayer: selectedChannel == '4' }" class="carousel-image" v-bind:src="getSlideUrl(slide, 'ChAT')"/>
-                <figcaption class="figcaption">Section {{slide}}</figcaption>
-            </slide>
-        </carousel-3d>
+    <Vueper-slides class="vueper" fade :bullets="false" :slide-ratio="100/162" :disableArrowsOnEdges="true">
+      <template #arrow-left>
+        <svg viewBox="0 0 9 18">
+          <path stroke-linecap="round" d="m8 1 l-7 8 7 8"></path>
+        </svg>
+        <p>Rostral</p>
+      </template>
+      <template #arrow-right>
+        <svg viewBox="0 0 9 18">
+          <path stroke-linecap="round" d="m1 1 l7 8 -7 8"></path>
+        </svg>
+        <p>Caudal</p>
+      </template>
+      <Vueper-slide v-for="(slide, i) in slides" :key="i" >
+        <template #content>
+          <figcaption class="figcaption">Section {{slide}}</figcaption>
+          <img v-bind:class="{ activeLayer: isAtlasSelected }" class="carousel-image atlas" v-bind:src="getSlideUrl(slide, 'atlas')"/>
+          <img v-bind:class="{ activeLayer: selectedChannel == '1' }" class="carousel-image" v-bind:src="getSlideUrl(slide, 'NeuN')"/>
+          <img v-bind:class="{ activeLayer: selectedChannel == '2' }" class="carousel-image" v-bind:src="getSlideUrl(slide, 'TH')"/>
+          <img v-bind:class="{ activeLayer: selectedChannel == '3' }" class="carousel-image" v-bind:src="getSlideUrl(slide, 'nissl')"/>
+          <img v-bind:class="{ activeLayer: selectedChannel == '4' }" class="carousel-image" v-bind:src="getSlideUrl(slide, 'ChAT')"/>
+        </template>
+      </Vueper-slide>
+    </Vueper-slides>
     </div>
 </template>
 
