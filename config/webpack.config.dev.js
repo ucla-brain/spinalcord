@@ -1,57 +1,27 @@
 'use strict';
-const path                 = require('path');
-const webpack              = require('webpack');
-const merge                = require('webpack-merge');
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const helpers              = require('./helpers');
+const paths = require('./paths');   //helper path file
+const { merge }                = require('webpack-merge'); //new syntax
 const commonConfig         = require('./webpack.config.common');
-const environment          = require('./env/dev.env');
-const CopyWebpackPlugin    = require('copy-webpack-plugin');
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 
 
 const webpackConfig = merge(commonConfig, {
     mode: 'development',
-    devtool: 'cheap-module-eval-source-map',
-    output: {
-        path: helpers.root('docs'),
-        publicPath: '/',
-        filename: 'js/[name].bundle.js',
-        chunkFilename: 'js/[id].chunk.js'
-    },
-    optimization: {
-        runtimeChunk: 'single',
-        splitChunks: {
-            chunks: 'all'
-        }
-    },
-    plugins: [
-        new webpack.EnvironmentPlugin(environment),
-        new webpack.HotModuleReplacementPlugin(),
-        new FriendlyErrorsPlugin(),
-        // copy custom static assets
-    new CopyWebpackPlugin(
-        [
-          { from: path.resolve(__dirname, '../src/static'), to: environment.assetsPublicPath }
-        ]
-      ),
-      new MiniCSSExtractPlugin({
-        filename: 'css/[name].[hash].css',
-        chunkFilename: 'css/[id].[hash].css'
-    }),
-    ],
+
+    devtool: 'inline-source-map', //cheap module eval update
+   
     devServer: {
         compress: true,
         historyApiFallback: true,
+        static: paths.src,
         hot: true,
         open: true,
-        overlay: true,
         port: 8000,
-        stats: {
-            normal: true
-        }
-    }
+    },
+
+    watchOptions: {     //for no file watching size errors
+        ignored: ['**/node_modules', '**/docs']
+      },
 });
 
 module.exports = webpackConfig;

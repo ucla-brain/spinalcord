@@ -1,16 +1,17 @@
 'use strict';
 const path                     = require('path')
 const webpack                  = require('webpack');
-const merge                    = require('webpack-merge');
-const OptimizeCSSAssetsPlugin  = require('optimize-css-assets-webpack-plugin');
+const { merge }                = require('webpack-merge'); //new syntax
+const CssMinimizerPlugin       = require('css-minimizer-webpack-plugin'); //new replacement plugin for optimize-css
 const MiniCSSExtractPlugin     = require('mini-css-extract-plugin');
-const UglifyJSPlugin           = require('uglifyjs-webpack-plugin');
+const UglifyJSPlugin           = require('terser-webpack-plugin');
 const CompressionPlugin        = require('compression-webpack-plugin');
 const helpers                  = require('./helpers');
 const commonConfig             = require('./webpack.config.common');
 const isProd                   = process.env.NODE_ENV === 'production';
 const environment              = isProd ? require('./env/prod.env') : require('./env/staging.env');
 const CopyWebpackPlugin        = require('copy-webpack-plugin');
+const outputFileName           = `js/[name]${isProd ? '.[contenthash:8]' : ''}.js`
 
 
 const webpackConfig = merge(commonConfig, {
@@ -18,21 +19,15 @@ const webpackConfig = merge(commonConfig, {
     output: {
         path: helpers.root('docs'),
         publicPath: '/spinalcord/',
-        filename: 'js/[hash].js',
-        chunkFilename: 'js/[id].[hash].chunk.js'
+        filename: outputFileName,
+        chunkFilename: outputFileName
     },
     optimization: {
         runtimeChunk: 'single',
         minimizer: [
-            new OptimizeCSSAssetsPlugin({
-                cssProcessorPluginOptions: {
-                    preset: [ 'default', { discardComments: { removeAll: true } } ],
-                }
-            }),
+            new CssMinimizerPlugin(),
             new UglifyJSPlugin({
-                cache: true,
                 parallel: true,
-                sourceMap: !isProd
             })
         ],
         splitChunks: {
@@ -40,13 +35,11 @@ const webpackConfig = merge(commonConfig, {
             maxInitialRequests: Infinity,
             minSize: 0,
             cacheGroups: {
-                vendor: {
+                defaultVendors: {
                     test: /[\\/]node_modules[\\/]/,
-                    name (module) {
-                        const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-                        return `npm.${packageName.replace('@', '')}`;
-                    }
-                },
+                    priority: -10,
+                    reuseExistingChunk: false,
+                  },
                 styles: {
                     test: /\.css$/,
                     name: 'styles',
@@ -59,27 +52,30 @@ const webpackConfig = merge(commonConfig, {
     plugins: [
         new webpack.EnvironmentPlugin(environment),
         new MiniCSSExtractPlugin({
-            filename: 'css/[name].[hash].css',
-            chunkFilename: 'css/[id].[hash].css'
+            filename: 'css/[name].[contenthash].css',       // hash->contenthash new supported syntax
+            chunkFilename: 'css/[id].[contenthash].css'
         }),
         new CompressionPlugin({
-            filename: '[path].gz[query]',
+            filename: '[path][base].gz',
             algorithm: 'gzip',
             test: new RegExp('\\.(js|css)$'),
             threshold: 10240,
             minRatio: 0.8
         }),
-        new webpack.HashedModuleIdsPlugin(),
         // copy custom static assets
         new CopyWebpackPlugin(
-        [
-          {from: path.resolve(__dirname, '../src/static'),
-          to: environment.assetsPublicPath,
-          ignore: ['.*']}
+            {patterns: [
+              {
+                from: path.resolve(__dirname, '../src/static'),
+                to: environment.assetsPublicPath,
+                globOptions: {
+                  ignore: ['.*'],
+                },
+              },
+            ],}
+        )
         ]
-    )
-    ]
-});
+    });
 
 if (!isProd) {
     webpackConfig.devtool = 'source-map';
